@@ -15,11 +15,24 @@
 
     <h1>My Website</h1>
 
-    <div class="banner"></div>
+    <div id="banner"></div>
 
     <footer>footer</footer>
 
-    <script type="text/babel"></script>
+    <script type="text/babel">
+
+        const Banner = () => {
+            return (
+                <div>
+                    <p>Banner</p>
+                </div>
+            );
+        }
+
+        // render the component to the browser
+        ReactDOM.createRoot(document.querySelector('#banner')).render(<Banner />);
+
+    </script>
 </body>
 
 </html>
