@@ -25,11 +25,15 @@
             const title = "Primary Title";
             const subTitle = "Secondary Title";
 
+            const handleClick = (e) => {
+                console.log(e);
+            }
+
             return (
                 <div className="banner">
-                    <h2>{title}</h2>
+                    <h2>{title.toUpperCase()}</h2>
                     <h3>{subTitle}</h3>
-                    <p>Today's date: {new Date().toDateString()}</p>
+                    <button onClick={handleClick}>Click Here</button>
                 </div>
             ); // must have single parent element
         }
