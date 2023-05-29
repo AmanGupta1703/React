@@ -1,18 +1,19 @@
 // what is state?
 //  => component data that may change overtime
 
-function App() {
-    let name = "Ryu";
+import { useState } from "react";
 
-    const handleClick = () => {
-        name = "Mario";
-        console.log(name);
-    }
+function App() {
+	const [name, setName] = useState("Ryu");
+
+	const handleClick = () => {
+		setName("Mario");
+	};
 
 	return (
 		<>
 			<h1>My name is {name}</h1>
-            <button onClick={handleClick}>Change Name</button>
+			<button onClick={handleClick}>Change Name</button>
 		</>
 	);
 }
