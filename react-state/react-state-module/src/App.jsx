@@ -6,7 +6,6 @@
 import { useState } from "react";
 
 function App() {
-	const [name, setName] = useState("Ryu");
 	// eslint-disable-next-line no-unused-vars
 	const [events, setEvents] = useState([
 		{ title: "mario's birthday bash", id: 1 },
@@ -14,18 +13,21 @@ function App() {
 		{ title: "race on moo moo farm", id: 3 },
 	]);
 
-	const handleClick = () => {
-		setName("Mario");
+	const handleClick = (id) => {
+		setEvents((prevEvents) =>
+			prevEvents.filter((prevEvent) => prevEvent.id !== id)
+		);
 	};
 
 	return (
 		<>
-			<h1>My name is {name}</h1>
-			<button onClick={handleClick}>Change Name</button>
 			{events.map((event, index) => {
 				return (
 					<div key={event.id}>
-						<h2>{index + 1}. {event.title}</h2>
+						<h2>
+							{index + 1}. {event.title}
+						</h2>
+						<button onClick={() => handleClick(event.id)}>Delete Event</button>
 					</div>
 				);
 			})}
