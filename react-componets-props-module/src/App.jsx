@@ -1,4 +1,7 @@
 /* eslint-disable */
+// What is prop?
+// 	=> A way to pass data from parent component to child component 
+
 import "./App.css";
 import { useState } from "react";
 import Title from "./components/title";
@@ -20,9 +23,11 @@ function App() {
 		);
 	};
 
+	const subtitle = "All the latest events in MarioLand!";
+
 	return (
 		<div className="card">
-			<Title />
+			<Title title="Mario Kingdom Events" subtitle={subtitle} />
 			{showEvents && (
 				<div>
 					<button onClick={() => setShowEvents(false)}>hide events</button>

@@ -1,9 +1,10 @@
-export default function Title() {
+/* eslint-disable */
+export default function Title({ title, subtitle }) {
 	return (
 		<div>
-			<h1 className="title">Mario Kingdom Events!</h1>
-            <br />
-            <h2 className="subtitle">All the lastest events in the mario kingdom</h2>
+			<h1 className="title">{title}</h1>
+			<br />
+			<h2 className="subtitle">{subtitle}</h2>
 		</div>
 	);
 }
