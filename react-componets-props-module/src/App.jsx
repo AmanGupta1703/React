@@ -3,7 +3,7 @@
 // 	=> A way to pass data from parent component to child component 
 
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import Title from "./components/title";
 
 function App() {
@@ -14,8 +14,6 @@ function App() {
 		{ title: "bowser's live stream", id: 2 },
 		{ title: "race on moo moo farm", id: 3 },
 	]);
-
-	console.log(showEvents);
 
 	const handleClick = (id) => {
 		setEvents((prevEvents) =>
@@ -34,21 +32,21 @@ function App() {
 				</div>
 			)}
 			{ !showEvents &&
-				<div>
+				<>
 					<button onClick={() => setShowEvents(true)}>show events</button>
-				</div>
+				</>
 			}
 			{showEvents &&
 				events.map((event, index) => {
 					return (
-						<div key={event.id}>
+						<React.Fragment key={event.id}>
 							<h2>
 								{index + 1}. {event.title}
 							</h2>
 							<button onClick={() => handleClick(event.id)}>
 								Delete Event
 							</button>
-						</div>
+						</React.Fragment>
 					);
 				})}
 		</div>
