@@ -10,9 +10,15 @@ export default function Modal({ children, handleClose, isSalesModal }) {
 					border: "4px solid",
 					borderColor: isSalesModal ? "#ff4500" : "#555",
 					textAlign: "center",
-				}}>
+				}}
+			>
 				{children}
-				<button onClick={handleClose}>close</button>
+				<button
+					className={isSalesModal ? "sales-btn" : ""}
+					onClick={handleClose}
+				>
+					close
+				</button>
 			</div>
 		</div>,
 		document.body
