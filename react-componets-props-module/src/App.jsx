@@ -3,9 +3,10 @@
 // 	=> A way to pass data from parent component to child component
 
 import "./App.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import Title from "./components/title";
 import Modal from "./components/Modal";
+import Eventlist from "./components/Eventlist";
 
 function App() {
 	const [showModal, setShowModal] = useState(false);
@@ -46,19 +47,7 @@ function App() {
 					<button onClick={() => setShowEvents(true)}>show events</button>
 				</div>
 			)}
-			{showEvents &&
-				events.map((event, index) => {
-					return (
-						<React.Fragment key={event.id}>
-							<h2>
-								{index + 1}. {event.title}
-							</h2>
-							<button onClick={() => handleClick(event.id)}>
-								Delete Event
-							</button>
-						</React.Fragment>
-					);
-				})}
+			{showEvents && <Eventlist events={events} handleClick={handleClick} />}
 			{showModal && (
 				<Modal handleClose={handleClose}>
 					<h2>10% Off Coupon Code!!</h2>
