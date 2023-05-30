@@ -1,10 +1,11 @@
 /* eslint-disable */
 // What is prop?
-// 	=> A way to pass data from parent component to child component 
+// 	=> A way to pass data from parent component to child component
 
 import "./App.css";
 import React, { useState } from "react";
 import Title from "./components/title";
+import Modal from "./components/Modal";
 
 function App() {
 	const [showEvents, setShowEvents] = useState(true);
@@ -31,11 +32,11 @@ function App() {
 					<button onClick={() => setShowEvents(false)}>hide events</button>
 				</div>
 			)}
-			{ !showEvents &&
+			{!showEvents && (
 				<>
 					<button onClick={() => setShowEvents(true)}>show events</button>
 				</>
-			}
+			)}
 			{showEvents &&
 				events.map((event, index) => {
 					return (
@@ -49,6 +50,10 @@ function App() {
 						</React.Fragment>
 					);
 				})}
+			<Modal>
+				<h2>10% Off Coupon Code!!</h2>
+				<p>Use the code NINJA10 at the checkout.</p>
+			</Modal>
 		</div>
 	);
 }
