@@ -8,6 +8,7 @@ import Title from "./components/title";
 import Modal from "./components/Modal";
 
 function App() {
+	const [showModal, setShowModal] = useState(true);
 	const [showEvents, setShowEvents] = useState(true);
 	// eslint-disable-next-line no-unused-vars
 	const [events, setEvents] = useState([
@@ -20,6 +21,10 @@ function App() {
 		setEvents((prevEvents) =>
 			prevEvents.filter((prevEvent) => prevEvent.id !== id)
 		);
+	};
+
+	const handleClose = () => {
+		setShowModal(!showModal);
 	};
 
 	const subtitle = "All the latest events in MarioLand!";
@@ -50,10 +55,12 @@ function App() {
 						</React.Fragment>
 					);
 				})}
-			<Modal>
-				<h2>10% Off Coupon Code!!</h2>
-				<p>Use the code NINJA10 at the checkout.</p>
-			</Modal>
+			{showModal &&
+				<Modal handleClose={handleClose}>
+					<h2>10% Off Coupon Code!!</h2>
+					<p>Use the code NINJA10 at the checkout.</p>
+				</Modal>
+			}
 		</div>
 	);
 }
