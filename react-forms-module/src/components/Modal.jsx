@@ -1,7 +1,7 @@
 /* eslint-disable */
 import "./Modal.css";
 import { createPortal } from "react-dom";
-export default function Modal({ children, handleClose, isSalesModal }) {
+export default function Modal({ children, isSalesModal }) {
 	return createPortal(
 		<div className="modal-backdrop">
 			<div
@@ -13,12 +13,6 @@ export default function Modal({ children, handleClose, isSalesModal }) {
 				}}
 			>
 				{children}
-				<button
-					className={isSalesModal ? "sales-btn" : ""}
-					onClick={handleClose}
-				>
-					close
-				</button>
 			</div>
 		</div>,
 		document.body

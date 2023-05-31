@@ -13,11 +13,12 @@ function App() {
 	const [showModal, setShowModal] = useState(false);
 	const [showEvents, setShowEvents] = useState(true);
 	// eslint-disable-next-line no-unused-vars
-	const [events, setEvents] = useState([
-		{ title: "mario's birthday bash", id: 1 },
-		{ title: "bowser's live stream", id: 2 },
-		{ title: "race on moo moo farm", id: 3 },
-	]);
+	const [events, setEvents] = useState([]);
+
+	const addEvent = (event) => {
+		setEvents(prevEvents => [...prevEvents, event]);
+		setShowModal(false);
+	}
 
 	const handleClick = (id) => {
 		setEvents((prevEvents) =>
@@ -50,8 +51,8 @@ function App() {
 			)}
 			{showEvents && <Eventlist events={events} handleClick={handleClick} />}
 			{showModal && (
-				<Modal handleClose={handleClose} isSalesModal={true}>
-					<NewEventForm />
+				<Modal isSalesModal={true}>
+					<NewEventForm addEvent={addEvent} />
 				</Modal>
 			)}
 			<div>
