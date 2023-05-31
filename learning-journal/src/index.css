@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+*::before,
+*,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root {
+    --ff-primary: 'Source Sans Pro', sans-serif;
+    --ff-secondary: 'Roboto', sans-serif;
+
+    --regular: 400;
+    --semibold: 600;
+    --bold: 700; 
+
+    --fs-14: 1.4rem;
+    --fs-16: 1.6rem;
+    --fs-20: 2rem;
+    --fs-24: 2.4rem;
+    --fs-40: 4rem; 
+
+    --clr-white-bg-body: #FAFAFA;
+    --clr-white: #FFFFFF; 
+    --clr-black: #0E0E0E;
+    --clr-footer-BG: #202020;
+
+    --clr-light-grey-1: #ECECEC;
+    --clr-light-grey-2: #D7D7D7;
+
+    --clr-card-title: #000000;
+    --clr-card-subtitle: #141414;
+    --clr-card-description: #505050;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+	box-sizing: border-box;
+    background: var(--clr-white-bg-body);
+    font-family: var(--ff-primary);
+    font-weight: var(--regular);
+    line-height: 1.5;
+	min-height: 100vh;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

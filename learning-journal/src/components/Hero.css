@@ -1,0 +1,37 @@
+.hero::before {
+	content: "";
+	background: url("../assets/hero-image.png") no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero {
+    color: var(--clr-white);
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: end;
+    padding: 0 5.3rem 5.93rem;
+	height: 52.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+.tertiary-header,
+.hero__description {
+    font-size: var(--fs-16);
+}
+
+.secondary-header {
+    font-size: var(--fs-40);
+}
+
+.hero__description {
+    width: 61.484rem;
+}

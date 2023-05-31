@@ -1,0 +1,10 @@
+.navbar__list {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.navbar__item {
+    font-size: var(--fs-16);
+    font-weight: var(--semibold);
+    text-transform: uppercase;
+}
