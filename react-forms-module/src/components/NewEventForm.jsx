@@ -1,26 +1,29 @@
 /* eslint-disable */
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./NewEventForm.css";
 
-export default function NewEventForm({ addEvent }) {
-	const title = useRef();
-	const date = useRef();
+export default function NewEventForm( { addEvent } ) {
+	const [title, setTitle] = useState("");
+	const [date, setDate] = useState("");
+	const [location, setLocation] = useState("Manchester");
 
 	const resetForm = () => {
-		title.current.value;
-		date.current.value;
+		setTitle("");
+		setDate("");
+        setLocation("manchester");
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		const event = {
-			title: title.current.value,
-			date: date.current.value,
+			title,
+			date,
+            location,
 			id: Math.floor(Math.random() * 10000),
 		};
+        addEvent(event);
 		console.log(event);
-		addEvent(event);
 		resetForm();
 	};
 
@@ -28,11 +31,27 @@ export default function NewEventForm({ addEvent }) {
 		<form className="new-event-form" onSubmit={handleSubmit}>
 			<label>
 				<span>Event TItle: </span>
-				<input type="text" ref={title} />
+				<input
+					type="text"
+					value={title}
+					onChange={(e) => setTitle(e.target.value)}
+				/>
 			</label>
 			<label>
 				<span>Event Date: </span>
-				<input type="date" ref={date} />
+				<input
+					type="date"
+					value={date}
+					onChange={(e) => setDate(e.target.value)}
+				/>
+			</label>
+			<label>
+				<span>Event Location: </span>
+				<select onChange={(e) => setLocation(e.target.value)}>
+					<option value="manchester">Manchester</option>
+					<option value="london">London</option>
+					<option value="cardiff">Cardiff</option>
+				</select>
 			</label>
 			<button>Submit</button>
 		</form>
