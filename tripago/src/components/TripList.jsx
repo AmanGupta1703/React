@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import "./TripList.css";
 
 /* eslint-disable */
 export default function TripList() {
 	const [trips, setTrips] = useState([]);
 
-	fetch("http://localhost:3000/trips")
-		.then((response) => response.json())
-		.then((json) => setTrips(json)); // will keep on fetching since the component is re-evaluated as the state is changed in each re-evaluation / render
-
-    // console.log(trips); 
+	useEffect(() => {
+		fetch("http://localhost:3000/trips")
+			.then((response) => response.json())
+			.then((json) => setTrips(json));
+	}, []);
 
 	return (
-		<div>
+		<div className="trip-list">
 			<h2>Trip List</h2>
+			<ul>
+				{trips.map((trip) => {
+					const { title, price, id } = trip;
+					return (
+						<li key={id}>
+							<h3>{title}</h3>
+							<p>{price}</p>
+						</li>
+					);
+				})}
+			</ul>
 		</div>
 	);
 }
