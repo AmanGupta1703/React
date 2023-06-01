@@ -1,3 +1,3 @@
 Learning Journal
 ### Website Preview
-[Learning Journal Website Preview]([https://www.google.com](https://learning-journal-react.netlify.app/))
+[My Learning Journal](https://learning-journal-react.netlify.app/)
