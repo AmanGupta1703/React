@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./TripList.css";
 
 /* eslint-disable */
@@ -6,11 +6,16 @@ export default function TripList() {
 	const [trips, setTrips] = useState([]);
 	const [url, setUrl] = useState("http://localhost:3000/trips");
 
+	const fetchTrips = useCallback(async () => { 		// creates a cache version of the function 
+		const response = await fetch(url);				// and not every re-render the cache function is not being recreated in the memory
+		const json = await response.json();
+		setTrips(json);
+	}, [url]); // also has a dependency array, which will tell the `useCallback` when to create a new version
+	// will generate a new version of callback, when the `url` changes (`url` changes when the button is clicked)
+
 	useEffect(() => {
-		fetch(url)
-			.then((response) => response.json())
-			.then((json) => setTrips(json));
-	}, [url]); // fires this function whenever there is a change in url // runs for every intial / first render
+		fetchTrips();
+	}, [fetchTrips]);
 
 	return (
 		<div className="trip-list">
