@@ -1,6 +1,11 @@
 import "./App.css";
+import TripList from "./components/TripList";
 function App() {
-	return <></>;
+	return (
+		<>
+			<TripList />
+		</>
+	);
 }
 
 export default App;
