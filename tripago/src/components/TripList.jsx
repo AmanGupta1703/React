@@ -4,12 +4,13 @@ import "./TripList.css";
 /* eslint-disable */
 export default function TripList() {
 	const [trips, setTrips] = useState([]);
+	const [url, setUrl] = useState("http://localhost:3000/trips");
 
 	useEffect(() => {
-		fetch("http://localhost:3000/trips")
+		fetch(url)
 			.then((response) => response.json())
 			.then((json) => setTrips(json));
-	}, []);
+	}, [url]); // fires this function whenever there is a change in url // runs for every intial / first render
 
 	return (
 		<div className="trip-list">
@@ -25,6 +26,10 @@ export default function TripList() {
 					);
 				})}
 			</ul>
+			<div className="filters">
+				<button onClick={() => setUrl("http://localhost:3000/trips?loc=europe")}>European Trips</button>
+				<button onClick={() => setUrl("http://localhost:3000/trips")}>All Trips</button>
+			</div>
 		</div>
 	);
 }
