@@ -1,27 +1,21 @@
-import { useCallback, useEffect, useState } from "react";
+/* eslint-disable */
+import { useState } from "react";
+
+// styles
 import "./TripList.css";
 
-/* eslint-disable */
+// custom hook
+import { useFetch } from "../hooks/useFetch";
+
 export default function TripList() {
-	const [trips, setTrips] = useState([]);
 	const [url, setUrl] = useState("http://localhost:3000/trips");
-
-	const fetchTrips = useCallback(async () => { 		// creates a cache version of the function 
-		const response = await fetch(url);				// and not every re-render the cache function is not being recreated in the memory
-		const json = await response.json();
-		setTrips(json);
-	}, [url]); // also has a dependency array, which will tell the `useCallback` when to create a new version
-	// will generate a new version of callback, when the `url` changes (`url` changes when the button is clicked)
-
-	useEffect(() => {
-		fetchTrips();
-	}, [fetchTrips]);
+	const { data: trips } = useFetch(url);
 
 	return (
 		<div className="trip-list">
 			<h2>Trip List</h2>
 			<ul>
-				{trips.map((trip) => {
+				{trips && trips.map((trip) => {
 					const { title, price, id } = trip;
 					return (
 						<li key={id}>
@@ -32,8 +26,14 @@ export default function TripList() {
 				})}
 			</ul>
 			<div className="filters">
-				<button onClick={() => setUrl("http://localhost:3000/trips?loc=europe")}>European Trips</button>
-				<button onClick={() => setUrl("http://localhost:3000/trips")}>All Trips</button>
+				<button
+					onClick={() => setUrl("http://localhost:3000/trips?loc=europe")}
+				>
+					European Trips
+				</button>
+				<button onClick={() => setUrl("http://localhost:3000/trips")}>
+					All Trips
+				</button>
 			</div>
 		</div>
 	);
