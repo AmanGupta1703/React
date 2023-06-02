@@ -35,7 +35,7 @@ export default function Quote() {
 
 	useEffect(() => {
 		fetchRandomQuote(`${url}?genre=${selectedGenre}`);
-	}, [selectedGenre, url]);
+	}, [selectedGenre]);
 
 	const handleClick = () => {
 		fetchRandomQuote("https://quote-garden.onrender.com/api/v3/quotes/random");
