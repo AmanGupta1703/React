@@ -1,5 +1,11 @@
+.genre-list {
+    position: fixed;
+    top: 3.1rem;
+    right: 90%;
+}
+
 .button-container {
-    position: absolute;
+    position: fixed;
     top: 3.1rem;
     left: 90%;
 }
