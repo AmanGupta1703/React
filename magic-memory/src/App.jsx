@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import SingleCard from "./components/SingleCard";
 
@@ -28,11 +28,30 @@ function App() {
 		setTurns(0);
 	};
 
-	// handle a choice 
+	// handle a choice
 	const handleChoice = (card) => {
 		choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
-	}
-	console.log(choiceOne, choiceTwo);
+	};
+
+	// reset choice and increase turn
+	const resetTurn = () => {
+		setChoiceOne(null);
+		setChoiceTwo(null);
+		setTurns((prevTurns) => (prevTurns += 1));
+	};
+
+	// compare two cards
+	useEffect(() => {
+		if (choiceOne && choiceTwo) {
+			if (choiceOne.src === choiceTwo.src) {
+				console.log("Macth");
+				resetTurn();
+			} else {
+				console.log("No Match");
+				resetTurn();
+			}
+		}
+	}, [choiceOne, choiceTwo]);
 
 	return (
 		<div className="App">
