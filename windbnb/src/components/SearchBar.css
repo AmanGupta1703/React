@@ -1,0 +1,138 @@
+/* search__header */
+.search--bar {
+	background: var(--clr-white);
+	font-family: var(--ff-secondary);
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1.8rem 2.2rem;
+	width: 100%;
+	height: 63.2rem;
+    transition: all .6s ease;
+}
+
+.search__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 0 1.6rem;
+}
+
+.search__title {
+	font-size: var(--fs-12);
+}
+
+.btn--close {
+	font-size: var(--fs-18);
+}
+/* search__header */
+
+/* search__form */
+.search__form {
+	background: var(--clr-white);
+	box-shadow: var(--bs-search);
+	border-radius: var(--br-16);
+	padding: 2.6rem 1.1rem;
+	margin: 0 0 3.6rem;
+}
+
+.search__form-group label,
+.search__form-group input {
+	font-weight: var(--regular);
+}
+
+.search__form-group label {
+	font-size: var(--fs-10);
+	font-weight: var(--extrabold);
+	text-transform: uppercase;
+}
+
+.search__form-group input {
+	margin: 0.4rem 0 0;
+	font-size: var(--fs-14);
+}
+
+.search__form__guest-count {
+	color: var(--light-grey);
+}
+
+hr {
+	border: 0;
+	height: 0.1rem;
+	background: var(--very-light-grey);
+	margin: 1.2rem 0;
+}
+
+.search__form-group input {
+	display: block;
+}
+/* search__form */
+
+/* btn--search */
+.search--bar .btn--search {
+    color: var(--clr-white);
+    background: var(--clr-red);
+    box-shadow: var(--bs-search);
+    border-radius: var(--br-16);
+    font-weight: var(--bold);
+    padding: 1.5rem 2.4rem;
+    position: absolute;
+    bottom: 2.4rem;
+    left: 10.4rem;
+}
+/* btn--search */
+
+/* search__all-locations */
+.search__all-locations {
+    display: none;
+}
+
+.location:not(:last-child) {
+    margin: 0 0 3.6rem;
+}
+
+.location__name,
+.location i {
+    color: var(--dark-grey);
+    font-size: var(--fs-14);
+}
+
+.location__name {
+    margin-left: 1rem;
+}
+/* search__all-locations */
+
+/* search__guest-count */
+.guest--box:first-of-type {
+    margin: 4.8rem 0 5.2rem;
+}
+
+.guest__header {
+    font-size: var(--fs-14);
+}
+
+.guest__header span {
+    color: var(--light-grey);
+    display: block;
+    font-weight: var(--regular);
+}
+
+.search__button-container {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin: 1.2rem 0 0;
+}
+
+.search__button-container .btn {
+    border: .1rem solid var(--light-grey);
+    padding: 1rem;
+}
+
+.search__button-container span {
+    color: var(--very-dark-grey);
+    font-size: var(--fs-14);
+    font-weight: var(--bold);
+}
+
+/* search__guest-count */

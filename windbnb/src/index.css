@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mulish:wght@400;800&display=swap');
+
+:root {
+    --ff-primary: 'Montserrat', sans-serif;
+    --ff-secondary: 'Mulish', sans-serif;
+
+    --regular: 400;
+    --medium: 500;
+    --semibold: 600;
+    --bold: 700;
+    --extrabold: 800;
+
+    --fs-10: 1rem;
+    --fs-12: 1.2rem;
+    --fs-14: 1.4rem;
+    --fs-18: 1.8rem;
+
+    --red: 235;
+    --green: 87;
+    --blue: 87;
+    --alpha: .9;
+
+    --clr-white: #FFFFFF;
+    --clr-red: rgba(var(--red), var(--green), var(--blue), var(--alpha));
+    --very-light-grey: #F2F2F2;
+    --light-grey: #BDBDBD;
+    --dark-grey: #4F4F4F;
+    --very-dark-grey: #333333;
+
+    --br-16: 1.6rem;
+
+    --bs-search: 0px 1px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+html {
+    font-size: 62.5%;
+}
+
+*::before,
+*,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: var(--ff-primary);
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+button {
+    cursor: pointer;
+}
+
+button,
+input {
+    font: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+::placeholder {
+    font: inherit;
+}
+
